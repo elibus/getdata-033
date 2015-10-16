@@ -28,7 +28,7 @@ train <- cbind(subject = train_subjects$subject, train)
 test  <- cbind(subject = test_subjects$subject, test)
 
 # 1. Merges the training and the test sets to create one data set.
-data <- rbind(train,test) %>%
+firstTidy <- rbind(train,test) %>%
   # 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
   select(subject, 
          activity, 
@@ -36,12 +36,19 @@ data <- rbind(train,test) %>%
          contains("std", ignore.case = TRUE )
         )
 
+write.table(firstTidy, file = "firstTidy.txt", row.names = FALSE)
+
 # Clean up
 rm(train)
 rm(test)
-rm(activity_labels)
 rm(features)
-rm(train_subjects)
+rm(activity_labels)
 rm(train_labels)
-rm(test_subjects)
 rm(test_labels)
+rm(train_subjects)
+rm(test_subjects)
+
+# 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+secondTidy <- firstTidy %>% 
+  group_by(subject,activity) %>% 
+  summarise_each(funs(mean))
