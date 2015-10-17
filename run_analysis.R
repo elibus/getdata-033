@@ -7,6 +7,13 @@ unzip("dataset.zip")
 # 1.1 Associate activity ids w/ activity labels
 activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt", col.names = c("id","activity"))
 features <- read.table("UCI HAR Dataset/features.txt", col.names = c("id","feature"), colClasses = c('NULL',"character"))
+# Make column names more readable
+features <- lapply(features,
+                   function(y) {
+                    gsub("-", ".", y);
+                    gsub("[\\(\\)]", "", y)
+                  }
+                )
 
 train_labels    <- read.table("UCI HAR Dataset/train/y_train.txt", col.names = c("id"), header = FALSE)
 train_labels <- merge(train_labels, activity_labels)
@@ -36,7 +43,7 @@ firstTidy <- rbind(train,test) %>%
   # 2. Extracts only the measurements on the mean and standard deviation for each measurement.
   select(subject,
          activity,
-         matches("^[f|t]+.*mean.*$"),
+         matches("^[f|t]+.*mean[-]*$"),
          matches("^[f|t]+.*std.*$")
         )
 
@@ -55,6 +62,6 @@ secondTidy <- firstTidy %>%
   group_by(subject,activity) %>%
   summarise_each(funs(mean))
 
-secondTidy %>% print
+secondTidy
 
 # write.table(secondTidy, file = "secondTidy.txt", row.names = FALSE)
