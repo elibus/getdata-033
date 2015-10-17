@@ -1,7 +1,8 @@
 # Coursera - Getting and Cleaning Data
 
 ## Requirements
-The only requirement is the `dplyr` R package.
+ - R >= 3.2.x
+ - `dplyr` R package
 
 ## How to run `run_analysis.R`
 
@@ -20,5 +21,5 @@ This is the line you might need to modify:
 
 ### Run `run_analysis.R`
  1. Run R or RStudio
- 2. Set the working directory to the repo with `setwd("/path/to/the/cloned/repo)`
+ 2. Set the working directory to the repo with `setwd('/path/to/the/cloned/repo')`
  3. source ('run_analysis.R')
