@@ -26,6 +26,10 @@ This section describes how the two tidy data sets are built from the data files 
 `feature.txt` lists all features descriptive names. The file can be read as a table with two colums: `id` and `feature`.
 The column `id` is useless (it is just a counter), while the column `feature` holds the descriptive variable names for the train and test data sets. While reading the `X_train.txt`, column names can be assigned from the `feature` column.
 
+Before assigning variable names to columns, to improve readability and still keep syntactically valid variable names, we make some substituion:
+ * " " (space) is replaced by "."
+ * () are deleted
+
 The same holds for the test data set.
 
 #### Requirement n.3 - Uses descriptive activity names to name the activities in the data set
@@ -45,9 +49,13 @@ The same holds for the test data set.
 Train and test data sets have identical dimensions, they can be simply merged in a single data set appending the rows of one to the other.
 
 #### Requirement n.2 - Extracts only the measurements on the mean and standard deviation for each measurement.
-Once we built a unified data set with all data from train and test data sets, this can be easily achived by selecting only those columns whose name include "mean()" or "std()". As explained in the `features_info.txt` file, the variable names follow the following pattern: `<SIGNAL>-<FUN>-<AXIS>`.
+Once we built a unified data set with all data from train and test data sets, this can be easily achived by selecting only those columns whose name include "mean()" or "std()", as explained in the `features_info.txt`. Relevant columns can be selected using regular expressions, like this:
 
-The angle variables, that do not follow this pattern, have excluded from the data set as they are calculated from averages of other variables hence they are not "measurements on the mean and standard deviation".
+    select(subject,
+           activity,
+           matches("^[f|t]+.*mean[-]*$"),
+           matches("^[f|t]+.*std.*$")
+          )
 
 #### Requirement n.5 - From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
