@@ -4,65 +4,19 @@
 The only requirement is the `dplyr` R package.
 
 ## How to run `run_analysis.R`
-### repo and data setup
 
-To run `run_analysis.R` you need first to clone the repo and copy the course project dataset to a specified location. You can do it manually or you can use the script provided below if you run R on Linux/Mac.
+To run `run_analysis.R` you just need to:
+ 1. clone this repo `git clone https://github.com/elibus/getdata-033`
+ 2. Run R or RStudio
+ 3. Set the working directory `setwd("/path/to/the/cloned/repo)`
+ 4. source ('run_analysis.R')
 
-#### Manual steps
- 1. Clone this git repo (`$ git clone https://github.com/elibus/getdata-033`)
- 2. Download the course projects dataset from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
- 3. Unzip it in the repo folder
- 
-This is the whole tree:
+`run_analysis.R` will download the course dataset, unzip it and process the data to create the tidy dataset as requested.
+`run_analysis.R` is cross-platform (followed this advice https://thoughtfulbloke.wordpress.com/2015/08/31/hello-world), i.e. it should work seamlessly on Windows, Mac and Linux. Still there might be incompatibilities with Windows or Linunx as I did not have the change to test it on Windows. If case of issue change the `method` option at row 4 to something different (`nativa`, `curl` or whatever you think best).
 
-    elibus@livia getdata-033$ tree
-    .
-    ├── README.md
-    ├── UCI\ HAR\ Dataset
-    │   ├── README.txt
-    │   ├── activity_labels.txt
-    │   ├── features.txt
-    │   ├── features_info.txt
-    │   ├── test
-    │   │   ├── Inertial\ Signals
-    │   │   │   ├── body_acc_x_test.txt
-    │   │   │   ├── body_acc_y_test.txt
-    │   │   │   ├── body_acc_z_test.txt
-    │   │   │   ├── body_gyro_x_test.txt
-    │   │   │   ├── body_gyro_y_test.txt
-    │   │   │   ├── body_gyro_z_test.txt
-    │   │   │   ├── total_acc_x_test.txt
-    │   │   │   ├── total_acc_y_test.txt
-    │   │   │   └── total_acc_z_test.txt
-    │   │   ├── X_test.txt
-    │   │   ├── subject_test.txt
-    │   │   └── y_test.txt
-    │   └── train
-    │       ├── Inertial\ Signals
-    │       │   ├── body_acc_x_train.txt
-    │       │   ├── body_acc_y_train.txt
-    │       │   ├── body_acc_z_train.txt
-    │       │   ├── body_gyro_x_train.txt
-    │       │   ├── body_gyro_y_train.txt
-    │       │   ├── body_gyro_z_train.txt
-    │       │   ├── total_acc_x_train.txt
-    │       │   ├── total_acc_y_train.txt
-    │       │   └── total_acc_z_train.txt
-    │       ├── X_train.txt
-    │       ├── subject_train.txt
-    │       └── y_train.txt
-    ├── run_analysis.R
-    └── secondTidy.txt
-    
-    5 directories, 31 files
+This is the line you might need to modify:
 
-#### Script for Linux/Mac
-The following script should do the job if you run R on Mac/Linux:
-
-    git clone https://github.com/elibus/getdata-033
-    cd getdata-033
-    wget https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip -O dataset.zip
-    unzip dataset.zip
+    download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", method = "libcurl", destfile = "dataset.zip")
 
 ### Run `run_analysis.R`
  1. Run R or RStudio
