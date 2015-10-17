@@ -1,5 +1,9 @@
 library(dplyr)
 
+# download the dataset
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", method = "libcurl", destfile = "dataset.zip")
+unzip("dataset.zip")
+
 # 1.1 Associate activity ids w/ activity labels
 activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt", col.names = c("id","activity"))
 features <- read.table("UCI HAR Dataset/features.txt", col.names = c("id","feature"), colClasses = c('NULL',"character"))
@@ -32,8 +36,8 @@ firstTidy <- rbind(train,test) %>%
   # 2. Extracts only the measurements on the mean and standard deviation for each measurement.
   select(subject,
          activity,
-         contains("mean", ignore.case = TRUE ),
-         contains("std", ignore.case = TRUE )
+         matches("^[f|t]+.*mean.*$"),
+         matches("^[f|t]+.*std.*$")
         )
 
 # Clean up
