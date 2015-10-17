@@ -1,23 +1,23 @@
 library(dplyr)
 
 # 1.1 Associate activity ids w/ activity labels
-activity_labels <- read.table("data/activity_labels.txt", col.names = c("id","activity"))
-features <- read.table("data/features.txt", col.names = c("id","feature"), colClasses = c('NULL',"character"))
+activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt", col.names = c("id","activity"))
+features <- read.table("UCI HAR Dataset/features.txt", col.names = c("id","feature"), colClasses = c('NULL',"character"))
 
-train_labels    <- read.table("data/train/y_train.txt", col.names = c("id"), header = FALSE)
+train_labels    <- read.table("UCI HAR Dataset/train/y_train.txt", col.names = c("id"), header = FALSE)
 train_labels <- merge(train_labels, activity_labels)
 
-test_labels     <- read.table("data/test/y_test.txt", col.names = c("id"), header = FALSE)
+test_labels     <- read.table("UCI HAR Dataset/test/y_test.txt", col.names = c("id"), header = FALSE)
 test_labels  <- merge(test_labels, activity_labels)
 
 # Read subjects for both train and test
-train_subjects <- read.table("data/train/subject_train.txt", col.names = c("subject"), header = FALSE)
-test_subjects  <- read.table("data/test/subject_test.txt", col.names = c("subject"), header = FALSE)
+train_subjects <- read.table("UCI HAR Dataset/train/subject_train.txt", col.names = c("subject"), header = FALSE)
+test_subjects  <- read.table("UCI HAR Dataset/test/subject_test.txt", col.names = c("subject"), header = FALSE)
 
 # Read all data and...
 # 3. Uses descriptive activity names to name the activities in the data set
-train <- read.table("data/train/X_train.txt", header = FALSE, col.names = unlist(features))
-test  <- read.table("data/test/X_test.txt", header = FALSE, col.names = unlist(features))
+train <- read.table("UCI HAR Dataset/train/X_train.txt", header = FALSE, col.names = unlist(features))
+test  <- read.table("UCI HAR Dataset/test/X_test.txt", header = FALSE, col.names = unlist(features))
 
 # 4.Appropriately labels the data set with descriptive variable names.
 # Join w/ activity labels and subjects
@@ -51,4 +51,6 @@ secondTidy <- firstTidy %>%
   group_by(subject,activity) %>%
   summarise_each(funs(mean))
 
-write.table(secondTidy, file = "secondTidy.txt", row.names = FALSE)
+secondTidy %>% print
+
+# write.table(secondTidy, file = "secondTidy.txt", row.names = FALSE)
