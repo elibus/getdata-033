@@ -67,4 +67,4 @@ The following script should do the job if you run R on Mac/Linux:
 ### Run `run_analysis.R`
  1. Run R or RStudio
  2. Set the working directory to the repo with `setwd("/path/to/the/cloned/repo)`
- 3. source run_analysis.R
+ 3. source ('run_analysis.R')
