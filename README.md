@@ -17,4 +17,6 @@ To run `run_analysis.R` you just need to:
 
 This is the line you might need to modify:
 
-    download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", method = "libcurl", destfile = "dataset.zip")
+    download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", 
+     method = "libcurl", ## this one
+     destfile = "dataset.zip")
