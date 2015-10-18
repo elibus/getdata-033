@@ -1,7 +1,8 @@
 # Code Book 
+This is the code book for the course project of the "Getting and Cleaning Data" @Coursera.
 
 ## Data transformation
-This section describes how the two tidy data sets are built from the data files and how they satisfy the requirements. Here I am going to follow the code instead of the order of the requirements in the course project description.
+This section describes how the two required tidy data sets are built from the data files and how they satisfy the requirements. Here I am going to follow the code instead of the order of the requirements in the course project description.
 
 ### Requirement n.4 - Appropriately labels the data set with descriptive variable names. 
 `feature.txt` lists all features descriptive names. The file can be read as a table with two colums: `id` and `feature`.
@@ -54,9 +55,29 @@ To prove this second data set is tidy, we will first prove that the first data s
  3. **Each type of observational unit forms a table**: we have just one table that is one observational unit, a sample of variables for a given activity and subject.
  
 ## Variables
+Variables are named using the pattern described in the file `README.txt` that comes with the original data. Variable names have been slightly modified to increase readability and still keeping them compatible with R syntax.
+
+The pattern is: `<t|f><Body|Gravity><Acc|Gravity>[Jerk][Mag][.{mean|std}][.{X|Y|Z}]`.
+This is a brief explanation on how the naming scheme works:
+ - t: time domain signal
+ - f: frequency domain signal
+ - Body: body acceleration
+ - Gravity: gravity acceleration
+ - Acc: accelerometer
+ - Gyro: gyroscope
+ - Jerk: Jerk signal
+ - Mag: magnitude of X/Y/Z dimensional signals
+ - mean: averaga
+ - std: standard deviation
+
+For more details please have a look at `README.txt` and `features_info.txt` in the original data set.
 
 ### subject
+An identifier of the subject who carried out the experiment.
+
 ### activity
+Activity name.
+
 ### tBodyAccMag.mean
 ### tGravityAccMag.mean
 ### tBodyAccJerkMag.mean
