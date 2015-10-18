@@ -13,7 +13,7 @@ To run `run_analysis.R` you just need to:
  4. source ('run_analysis.R')
 
 `run_analysis.R` will download the course data set, unzip it and process the data to create two tidy data set as requested.
-`run_analysis.R` is cross-platform (followed this advice https://thoughtfulbloke.wordpress.com/2015/08/31/hello-world), i.e. it should work seamlessly on Windows, Mac and Linux. Still there might be incompatibilities with Windows or Linunx as I did not have the chance to test it on Windows. In case of issue change the `method` option at row 4 to something different (`native`, `curl` or whatever you think best).
+`run_analysis.R` is cross-platform (followed this advice https://thoughtfulbloke.wordpress.com/2015/08/31/hello-world), i.e. it should work seamlessly on Windows, Mac and Linux. Still there might be incompatibilities with Windows or Linunx as I did not have the chance to test it properly on those platforms. In case of any issue you migth change the `method` option at row 4 to something different (`native`, `curl` or whatever you think will work with your setup).
 
 This is the line you might need to modify:
 
