@@ -58,7 +58,7 @@ To prove this second data set is tidy, we will first prove that the first data s
 Variables are named using the pattern described in the file `README.txt` that comes with the original data. Variable names have been slightly modified to increase readability and still keeping them compatible with R syntax.
 
 The pattern is: `<t|f><Body|Gravity><Acc|Gravity>[Jerk][Mag][.{mean|std}][.{X|Y|Z}]`.
-This is a brief explanation on how the naming scheme works:
+This is a brief explanation of how the naming scheme works:
  - t: time domain signal
  - f: frequency domain signal
  - Body: body acceleration
