@@ -45,8 +45,8 @@ firstTidy <- rbind(train,test) %>%
   # 2. Extracts only the measurements on the mean and standard deviation for each measurement.
   select(subject,
          activity,
-         matches("^[f|t]+.*mean[-]*$"),
-         matches("^[f|t]+.*std.*$")
+         matches("^[f|t]+.*Mean[-]*$"),
+         matches("^[f|t]+.*Std.*$")
         )
 
 # Clean up
