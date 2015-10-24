@@ -1,5 +1,7 @@
 # Code Book 
-This is the code book for the course project of the "Getting and Cleaning Data" @Coursera.
+This is the code book for the course project of the "Getting and Cleaning Data" @Coursera based on the study available here: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+The [original dataset](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) reports data sampled from individuals doing activities while wearing a Samsung Galaxy S II.
 
 ## Data transformation
 This section describes how the two required tidy data sets are built from the data files and how they satisfy the requirements. Here I am going to follow the code instead of the order of the requirements in the course project description.
@@ -8,9 +10,7 @@ This section describes how the two required tidy data sets are built from the da
 `feature.txt` lists all features descriptive names. The file can be read as a table with two colums: `id` and `feature`.
 The column `id` is useless (it is just a counter), while the column `feature` holds the descriptive variable names for the train and test data sets. While reading the `X_train.txt`, column names can be assigned from the `feature` column.
 
-Before assigning variable names to columns, to improve readability and still keep syntactically valid variable names, we make some substituion:
- * " " (space) is replaced by "."
- * () are deleted
+Before assigning variable names to columns, to improve readability and still keep syntactically valid variable names, we have decided to have variable names in [CamelCase](https://en.wikipedia.org/wiki/CamelCase). This is needed because variable names are really long.
 
 The same holds for the test data set.
 
@@ -57,7 +57,7 @@ To prove this second data set is tidy, we will first prove that the first data s
 ## Variables
 Variables are named using the pattern described in the file `README.txt` that comes with the original data. Variable names have been slightly modified to increase readability and still keeping them compatible with R syntax.
 
-The pattern is: `<t|f><Body|Gravity><Acc|Gravity>[Jerk][Mag][.{mean|std}][.{X|Y|Z}]`.
+The pattern is: `<t|f><Body|Gravity><Acc|Gravity>[Jerk][Mag][{Mean|Std}][{X|Y|Z}]`.
 This is a brief explanation of how the naming scheme works:
  - t: time domain signal
  - f: frequency domain signal
@@ -78,29 +78,29 @@ An identifier of the subject who carried out the experiment.
 ### activity
 Activity name.
 
-### tBodyAccMag.mean
-### tGravityAccMag.mean
-### tBodyAccJerkMag.mean
-### tBodyGyroMag.mean
-### tBodyGyroJerkMag.mean
-### fBodyAccMag.mean
-### fBodyBodyAccJerkMag.mean
-### fBodyBodyGyroMag.mean
-### fBodyBodyGyroJerkMag.mean
-### tBodyAcc.std.{X|Y|Z}          
-### tGravityAcc.std.{X|Y|Z}
-### tBodyAccJerk.std.{X|Y|Z}
-### tBodyGyro.std.{X|Y|Z}
-### tBodyGyroJerk.std.{X|Y|Z}
-### tBodyAccMag.std          
-### tGravityAccMag.std
-### tBodyAccJerkMag.std
-### tBodyGyroMag.std
-### tBodyGyroJerkMag.std
-### fBodyAcc.std.{X|Y|Z}
-### fBodyAccJerk.std.{X|Y|Z}
-### fBodyGyro.std.{X|Y|Z}
-### fBodyAccMag.std
-### fBodyBodyAccJerkMag.std
-### fBodyBodyGyroMag.std
-### fBodyBodyGyroJerkMag.std
+### tBodyAccMagMean
+### tGravityAccMagMean
+### tBodyAccJerkMagMean
+### tBodyGyroMagMean
+### tBodyGyroJerkMagMean
+### fBodyAccMagMean
+### fBodyBodyAccJerkMagMean
+### fBodyBodyGyroMagMean
+### fBodyBodyGyroJerkMagMean
+### tBodyAccStd{X|Y|Z}          
+### tGravityAccStd{X|Y|Z}
+### tBodyAccJerkStd{X|Y|Z}
+### tBodyGyroStd{X|Y|Z}
+### tBodyGyroJerkStd{X|Y|Z}
+### tBodyAccMagStd          
+### tGravityAccMagStd
+### tBodyAccJerkMagStd
+### tBodyGyroMagStd
+### tBodyGyroJerkMagStd
+### fBodyAccStd{X|Y|Z}
+### fBodyAccJerkStd{X|Y|Z}
+### fBodyGyroStd{X|Y|Z}
+### fBodyAccMagStd
+### fBodyBodyAccJerkMagStd
+### fBodyBodyGyroMagStd
+### fBodyBodyGyroJerkMagStd
