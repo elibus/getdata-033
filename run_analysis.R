@@ -10,8 +10,10 @@ features <- read.table("UCI HAR Dataset/features.txt", col.names = c("id","featu
 # Make column names more readable
 features <- lapply(features,
                    function(y) {
-                    gsub("-", ".", y);
-                    gsub("[\\(\\)]", "", y)
+                    temp <- gsub("-", "", y)
+                    temp <- gsub("[\\(\\)]", "", temp)
+                    temp <- gsub("std", "Std", temp)
+                    temp <- gsub("mean", "Mean", temp)
                   }
                 )
 
