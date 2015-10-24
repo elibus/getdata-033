@@ -35,8 +35,8 @@ Once we built a unified data set with all data from train and test data sets, th
 
     select(subject,
            activity,
-           matches("^[f|t]+.*mean[-]*$"),
-           matches("^[f|t]+.*std.*$")
+           matches("^[f|t]+.*Mean[-]*$"),
+           matches("^[f|t]+.*Std.*$")
           )
 
 ### Requirement n.5 - From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
