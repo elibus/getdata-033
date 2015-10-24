@@ -73,34 +73,90 @@ This is a brief explanation of how the naming scheme works:
 For more details please have a look at `README.txt` and `features_info.txt` in the original data set.
 
 ### subject
+Class: Integer
+
 An identifier of the subject who carried out the experiment.
 
 ### activity
+Class: Character
+
 Activity name.
 
 ### tBodyAccMagMean
+Class: Double
+
 ### tGravityAccMagMean
+Class: Double
+
 ### tBodyAccJerkMagMean
+Class: Double
+
 ### tBodyGyroMagMean
+Class: Double
+
 ### tBodyGyroJerkMagMean
+Class: Double
+
 ### fBodyAccMagMean
+Class: Double
+
 ### fBodyBodyAccJerkMagMean
+Class: Double
+
 ### fBodyBodyGyroMagMean
+Class: Double
+
 ### fBodyBodyGyroJerkMagMean
-### tBodyAccStd{X|Y|Z}          
+Class: Double
+
+### tBodyAccStd{X|Y|Z}
+Class: Double
+
 ### tGravityAccStd{X|Y|Z}
+Class: Double
+
 ### tBodyAccJerkStd{X|Y|Z}
+Class: Double
+
 ### tBodyGyroStd{X|Y|Z}
+Class: Double
+
 ### tBodyGyroJerkStd{X|Y|Z}
-### tBodyAccMagStd          
+Class: Double
+
+### tBodyAccMagStd 
+Class: Double
+
 ### tGravityAccMagStd
+Class: Double
+
 ### tBodyAccJerkMagStd
+Class: Double
+
 ### tBodyGyroMagStd
+Class: Double
+
 ### tBodyGyroJerkMagStd
+Class: Double
+
 ### fBodyAccStd{X|Y|Z}
+Class: Double
+
 ### fBodyAccJerkStd{X|Y|Z}
+Class: Double
+
 ### fBodyGyroStd{X|Y|Z}
+Class: Double
+
 ### fBodyAccMagStd
+Class: Double
+
 ### fBodyBodyAccJerkMagStd
+Class: Double
+
 ### fBodyBodyGyroMagStd
+Class: Double
+
 ### fBodyBodyGyroJerkMagStd
+Class: Double
+
